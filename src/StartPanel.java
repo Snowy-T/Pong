@@ -18,12 +18,13 @@ public class StartPanel extends JPanel{
         pong.setForeground(Color.white);
         pong.setBounds(300, 200, 200, 100);
 
-        startGame = new JButton("Start Game");
-        startGame.setBounds(350, 300, 100, 50);
+        startGame = new JButton("Start");
+        startGame.setFont(new Font("CozetteVector", Font.BOLD, 30));
+        startGame.setBounds(340, 300, 120, 50);
         startGame.setBackground(Color.black);
         startGame.setForeground(Color.white);
         startGame.setFocusPainted(false);
-        startGame.setBorder(BorderFactory.createLineBorder(Color.white, 2, true));
+        startGame.setBorder(BorderFactory.createLineBorder(Color.white, 1, true));
 
 
         add(pong);

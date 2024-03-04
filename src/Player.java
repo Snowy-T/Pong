@@ -1,20 +1,59 @@
-import java.awt.*;
-public class Player extends Rectangle{
+import java.awt.Graphics;
+import java.awt.Color;
 
-    public int playerNumber;
-    public final int PADDLE_WIDTH = 10;
-    public final int PADDLE_HEIGHT = 100;
-    public int Score;
-    public int ySpeed;
-    public final int xSpeed = 0;
+public class Player {
 
-    public Player(int x, int y, int PADDLE_WIDTH, int PADDLE_HEIGHT, int playerNumber){
-        super(x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+    private int playerNumber;
+    private int speed = 5;
+
+    public Player(int x, int y, int width, int height, int playerNumber) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
         this.playerNumber = playerNumber;
     }
 
-    public void draw(Graphics g){
+    public void moveUp() {
+        if (y - speed >= 0) {
+            y -= speed;
+        }
+    }
+
+    public void moveDown() {
+        if (y + height + speed <= 600) {
+            y += speed;
+        }
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+
+    public void draw(Graphics g) {
         g.setColor(Color.white);
         g.fillRect(x, y, width, height);
+    }
+
+
+    public void setColor(Color color) {
+
     }
 }

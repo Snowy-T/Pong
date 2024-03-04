@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Oberflaeche extends JFrame implements ActionListener {
+public class Oberflaeche extends JFrame implements ActionListener, KeyListener {
 
     JPanel mainPanel = new JPanel();
     StartPanel panelStart = new StartPanel();
@@ -28,6 +28,10 @@ public class Oberflaeche extends JFrame implements ActionListener {
 
         mainPanel.add(panelStart);
         mainPanel.add(panelGame);
+
+
+        this.addKeyListener(this);
+        this.setFocusable(true);
     }
 
     @Override
@@ -36,6 +40,33 @@ public class Oberflaeche extends JFrame implements ActionListener {
             panelStart.setVisible(false);
             panelGame.setVisible(true);
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int key = e.getKeyCode();
+
+
+        if (key == KeyEvent.VK_W) {
+            panelGame.getPlayer1().moveUp();
+        } else if (key == KeyEvent.VK_S) {
+            panelGame.getPlayer1().moveDown();
+        }
+
+
+        if (key == KeyEvent.VK_UP) {
+            panelGame.getPlayer2().moveUp();
+        } else if (key == KeyEvent.VK_DOWN) {
+            panelGame.getPlayer2().moveDown();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
 
     }
 }
