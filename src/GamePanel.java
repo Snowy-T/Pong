@@ -15,7 +15,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public GamePanel() {
         player1 = new Player(5, 250, 10, 100, 1);
         player2 = new Player(770, 250, 10, 100, 2);
-        ball = new Ball(395, 295, 10, 10);
+        ball = new Ball(395, 295);
 
         timer = new Timer(10, this);
         timer.start();
@@ -42,19 +42,8 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void update() {
         int panelHeight = this.getHeight();
-        ball.move(player1, player2, panelHeight);
+        ball.move(player1, player2);
 
-        if (ball.getX() <= 0) {
-            score2++;
-            ball.setX(395);
-            ball.setY(295);
-            ball.setDx(ball.getDx() * -1);
-        } else if (ball.getX() >= 790) {
-            score1++;
-            ball.setX(395);
-            ball.setY(295);
-            ball.setDx(ball.getDx() * -1);
-        }
 
 
         repaint();

@@ -1,58 +1,30 @@
-import java.awt.Graphics;
-import java.awt.Color;
+import java.awt.*;
 
-public class Ball {
-    private int x;
-    private int y;
-    private int width, height;
-    private int dx = 2;
-    private int dy = 2;
+public class Ball extends Rectangle {
 
-    public Ball(int x, int y, int width, int height) {
+    private int speedX = 2;
+    private int speedY = 2;
+    private int size = 10;
+
+    public Ball(int x, int y) {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
+        this.width = size;
+        this.height = size;
     }
 
-    public void move(Player player1, Player player2, int panelHeight) {
-        x += dx;
-        y += dy;
+    public void move(Player player1, Player player2){
 
-        if (y <= 0 || y + height >= panelHeight) {
-            dy *= -1;
+        if(this.intersects(player1) || this.intersects(player2)){
+
         }
 
-        if (x <= player1.getX() + player1.getWidth() && y >= player1.getY() && y <= player1.getY() + player1.getHeight() ||
-                x >= player2.getX() && y >= player2.getY() && y <= player2.getY() + player2.getHeight()) {
-            dx *= -1;
-        }
     }
 
 
-    public int getX() {
-        return x;
-    }
 
-    public void setX(int x) {
-        this.x = x;
-    }
 
-    public int getY() {
-        return y;
-    }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getDx() {
-        return dx;
-    }
-
-    public void setDx(int dx) {
-        this.dx = dx;
-    }
 
     public void draw(Graphics g) {
         g.setColor(Color.white);
