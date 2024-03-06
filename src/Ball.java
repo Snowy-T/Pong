@@ -5,7 +5,7 @@ public class Ball {
     private int x;
     private int y;
     private int width, height;
-    private int dx;
+    private int dx = 2;
     private int dy = 2;
 
     public Ball(int x, int y, int width, int height) {
@@ -15,14 +15,13 @@ public class Ball {
         this.height = height;
     }
 
-    public void move(Player player1, Player player2) {
+    public void move(Player player1, Player player2, int panelHeight) {
         x += dx;
         y += dy;
 
-        if (y <= 0 || y >= 590) {
+        if (y <= 0 || y + height >= panelHeight) {
             dy *= -1;
         }
-
 
         if (x <= player1.getX() + player1.getWidth() && y >= player1.getY() && y <= player1.getY() + player1.getHeight() ||
                 x >= player2.getX() && y >= player2.getY() && y <= player2.getY() + player2.getHeight()) {
