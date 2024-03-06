@@ -1,12 +1,8 @@
-import java.awt.Graphics;
-import java.awt.Color;
+import java.awt.*;
 
-public class Player {
+public class Player extends Rectangle {
 
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+
     private int playerNumber;
     private int speed = 5;
 
@@ -29,23 +25,6 @@ public class Player {
             y += speed;
         }
     }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
 
     public void draw(Graphics g) {
         g.setColor(Color.white);
